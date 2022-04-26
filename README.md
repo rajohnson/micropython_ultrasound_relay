@@ -1,5 +1,5 @@
 # micropython_ultrasound_relay
-Controls the state of a relay based on the distance from a relay.
+Controls the state of a relay based on the distance from a range sensor.
 
 The processor reads the range sensor once per second and updates the relay state based on the reading.
 Threshold is set to 50 cm. 
