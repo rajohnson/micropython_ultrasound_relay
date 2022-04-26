@@ -2,7 +2,6 @@ import utime
 import machine
 
 DISTANCE_THRESHOLD_CM = 50  # below this the relay should be low, above active
-led = machine.Pin(25, machine.Pin.OUT)
 
 
 class Ultrasound:
@@ -52,8 +51,6 @@ if __name__ == '__main__':
     ''' Read the range sensor once per second and update the relay based
         on whether the result is over/under DISTANCE_THRESHOLD_CM '''
     while True:
-        print('start loop')
-        led.value(1)
         print('beginning reading')
         distance = distance_sensor.read_cm()
         print(f'distance is {distance} cm')
@@ -61,5 +58,4 @@ if __name__ == '__main__':
             relay.on()
         else:
             relay.off()
-        led.value(0)
         utime.sleep_us(1_000_000)  # 1s
