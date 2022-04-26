@@ -11,4 +11,5 @@ Otherwise the relay is inactive.
 [Demo video](https://youtu.be/Ks6QMVZVaHA)
 
 Microcontroller - https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html
+
 Range sensor (HC-SR04) datasheet - https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf
