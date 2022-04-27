@@ -1,5 +1,6 @@
 import utime
 import machine
+import relay as relay_module  # alias so relay can be the object name
 
 DISTANCE_THRESHOLD_CM = 50  # below this the relay should be low, above active
 
@@ -33,19 +34,8 @@ class Ultrasound:
         return distance_cm
 
 
-class Relay:
-    def __init__(self, coil_pin):
-        self.coil = machine.Pin(coil_pin, machine.Pin.OUT)
-
-    def on(self):
-        self.coil.value(1)
-
-    def off(self):
-        self.coil.value(0)
-
-
 distance_sensor = Ultrasound(trigger_pin=0, echo_pin=1)
-relay = Relay(2)
+relay = relay_module.Relay(2)
 
 if __name__ == '__main__':
     ''' Read the range sensor once per second and update the relay based
