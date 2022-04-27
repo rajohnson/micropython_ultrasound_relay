@@ -51,10 +51,7 @@ if __name__ == '__main__':
     ''' Read the range sensor once per second and update the relay based
         on whether the result is over/under DISTANCE_THRESHOLD_CM '''
     while True:
-        print('beginning reading')
-        distance = distance_sensor.read_cm()
-        print(f'distance is {distance} cm')
-        if distance > DISTANCE_THRESHOLD_CM:
+        if distance_sensor.read_cm() > DISTANCE_THRESHOLD_CM:
             relay.on()
         else:
             relay.off()
