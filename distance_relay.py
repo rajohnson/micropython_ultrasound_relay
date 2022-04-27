@@ -1,5 +1,4 @@
 import machine
-import utime
 import relay as relay_module  # alias so relay can be the object name
 import ultrasound
 
@@ -16,7 +15,7 @@ if __name__ == '__main__':
     # hold the relay inactive long enough to drain residual capitance on wdt reset
     if machine.reset_cause() == machine.WDT_RESET:
         relay.off()
-        utime.sleep(1)
+        machine.lightsleep(1000)  # ms
     
     while True:
         if distance_sensor.read_cm() > DISTANCE_THRESHOLD_CM:
@@ -24,4 +23,4 @@ if __name__ == '__main__':
         else:
             relay.off()
         watchdog.feed()
-        utime.sleep_us(1_000_000)  # 1s
+        machine.lightsleep(1000)  # ms
